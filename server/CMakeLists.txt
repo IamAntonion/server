@@ -11,9 +11,11 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_executable(server
   main.cpp
-  server.cpp
-  server.h
+  server.h server.cpp
 )
 
+include(GNUInstallDirs)
 install(TARGETS server
-    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR})
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+)

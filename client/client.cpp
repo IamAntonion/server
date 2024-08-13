@@ -9,7 +9,7 @@ client::client()
         connect_to_server();
 
         talk_with_server();
-//        send_message();
+        //        send_message();
     } catch (const std::runtime_error& e) {
         std::cerr << e.what() << std::endl;
     }

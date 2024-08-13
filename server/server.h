@@ -40,8 +40,8 @@ private:
 
     struct message {
         int size;
-//        std::string word;
-//        bool test_bit;
+        //        std::string word;
+        //        bool test_bit;
     };
 
     message _message;

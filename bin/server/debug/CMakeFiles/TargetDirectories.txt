@@ -1,7 +1,7 @@
-/home/uniuser/testProgramm/server_TS/bin/server/debug/CMakeFiles/server.dir
-/home/uniuser/testProgramm/server_TS/bin/server/debug/CMakeFiles/edit_cache.dir
-/home/uniuser/testProgramm/server_TS/bin/server/debug/CMakeFiles/rebuild_cache.dir
-/home/uniuser/testProgramm/server_TS/bin/server/debug/CMakeFiles/list_install_components.dir
-/home/uniuser/testProgramm/server_TS/bin/server/debug/CMakeFiles/install.dir
-/home/uniuser/testProgramm/server_TS/bin/server/debug/CMakeFiles/install/local.dir
-/home/uniuser/testProgramm/server_TS/bin/server/debug/CMakeFiles/install/strip.dir
+/home/anton123/Develop/server_TS/bin/server/debug/CMakeFiles/server.dir
+/home/anton123/Develop/server_TS/bin/server/debug/CMakeFiles/edit_cache.dir
+/home/anton123/Develop/server_TS/bin/server/debug/CMakeFiles/rebuild_cache.dir
+/home/anton123/Develop/server_TS/bin/server/debug/CMakeFiles/list_install_components.dir
+/home/anton123/Develop/server_TS/bin/server/debug/CMakeFiles/install.dir
+/home/anton123/Develop/server_TS/bin/server/debug/CMakeFiles/install/local.dir
+/home/anton123/Develop/server_TS/bin/server/debug/CMakeFiles/install/strip.dir
