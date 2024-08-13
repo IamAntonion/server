@@ -36,8 +36,16 @@ private:
 
     void start_server();
     void close_socket();
-
     void listen_server();
+    void recv_message();
+
+    struct message {
+//        int size;
+//        std::string word;
+        bool test_bit;
+    };
+
+    message _message;
 };
 
 }

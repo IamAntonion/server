@@ -5,9 +5,10 @@ namespace server {
 server::server() {
     try {
         start_server();
+
         listen_server();
     } catch (const std::runtime_error& e) {
-        e.what();
+        std::cerr << e.what() << std::endl;
     }
 }
 
@@ -45,17 +46,11 @@ void server::start_server() {
     _server_addr.sin_port           = PORT_SERVER;
     _server_addr.sin_addr.s_addr    = inet_addr(IP_ADRESS_SERVER);
 
-    if (bind(_socket_server, (struct sockaddr*) &_server_addr, sizeof(_server_addr)) <0) {
-        throw std::runtime_error("ip address or port is not connect");
+    if (bind(_socket_server, (struct sockaddr*) &_server_addr, sizeof(_server_addr)) < 0) {
+        throw std::runtime_error("IP address or port is not connect");
     }
 
     std::cout << "Set IP address and port: Success\n";
-
-    if (listen(_socket_server, SOMAXCONN)) {
-        throw std::runtime_error("server can't listen");
-    }
-
-    std::cout << "Server listen\n";
 }
 
 bool server::add_client() {
@@ -71,11 +66,30 @@ bool server::add_client() {
 }
 
 void server::listen_server() {
-    while (1) {
+    if (listen(_socket_server, SOMAXCONN)) {
+        throw std::runtime_error("Server can't listen");
+    }
+
+    std::cout << "Server listen\n";
+
+    while (1) {                 // лучше переделать под ожидаение, чем под цикл в цикле?
         if (!add_client()) {
             throw std::runtime_error("Connection from the client was not established");
         }
+        if (fork() == 0)  {
+            while (1) {
+                recv_message();
+            }
+        }
     }
+}
+
+void server::recv_message() {
+    if (recv(_socket_server, &_message, sizeof(_message), 0)) {
+        throw std::runtime_error("Message is not given");
+    }
+//    std::cout << _message.word << std::endl;
+    std::cout << (_message.test_bit == true ? "Received" : "Not Received");
 }
 
 }
