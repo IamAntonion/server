@@ -51,26 +51,27 @@ void client::connect_to_server() {
 void client::talk_with_server() {
     while (1) {
         send_message();
+        recv_message();
     }
 }
 
 void client::send_message() {
     std::cout << "Write message: \n";
-//    std::cin >> _message.word;
     std::cin >> _message.size;
-//    _message.word = "testing server";
-//    _message.size
-//    _message.test_bit = true;
 
     if (send(_socket, (struct message *)&_message, sizeof(_message), 0) < 0) {
         throw std::runtime_error("Can't send message");
     }
 
-//    if (send(_socket, (bool *)&_message.test_bit, sizeof(_message.test_bit), 0) < 0) {
-//        throw std::runtime_error("Can't send message");
-//    }
-
     std::cout << "Message is send\n";
+}
+
+void client::recv_message() {
+    long time;
+    if (recv(_socket, (long *)&time, sizeof(time), 0) < 0) {
+        throw std::runtime_error("Response is not given");
+    }
+    std::cout << "Response: "<< time << std::endl;
 }
 
 void client::close_socket() {

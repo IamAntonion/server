@@ -86,12 +86,20 @@ void server::listen_server() {
 
 void server::recv_message() {
     if (recv(_socket_client, (struct message *)&_message, sizeof(_message), 0) < 0) {
-//    if (recv(_socket_server, (bool *)&_message.test_bit, sizeof(_message.test_bit), 0) < 0) {
         throw std::runtime_error("Message is not given");
     }
-//    std::cout << _message.word << std::endl;
     std::cout << _message.size << std::endl;
-//    std::cout << (_message.test_bit == true ? "Received" : "Not Received");
+    send_message();
+}
+
+void server::send_message() {
+    time_t seconds;
+    seconds = time(NULL);
+
+    if (send(_socket_client, (time_t*)&seconds, sizeof(seconds), 0) < 0) {
+        throw std::runtime_error("Can't send response");
+    }
+    std::cout << "Message is send\n";
 }
 
 }

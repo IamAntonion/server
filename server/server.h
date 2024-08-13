@@ -34,7 +34,9 @@ private:
     void start_server();
     void close_socket();
     void listen_server();
+
     void recv_message();
+    void send_message();
 
     struct message {
         int size;

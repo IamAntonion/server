@@ -21,7 +21,6 @@ public:
     client();
     ~client();
 
-    void send_message();
 private:
     int _socket;
     struct sockaddr_in _server_addr;
@@ -29,6 +28,9 @@ private:
     void start_client();
     void connect_to_server();
     void talk_with_server();
+
+    void send_message();
+    void recv_message();
 
     void close_socket();
 
