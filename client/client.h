@@ -35,10 +35,14 @@ private:
     void close_socket();
 
     struct message {
+        // std::string content;
+        // int time;
         int size;
         //        std::string word;
         //        bool test_bit;
     };
+
+    int time_to_send;
 
     message _message;
 };

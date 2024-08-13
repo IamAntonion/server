@@ -88,8 +88,12 @@ void server::recv_message() {
     if (recv(_socket_client, (struct message *)&_message, sizeof(_message), 0) < 0) {
         throw std::runtime_error("Message is not given");
     }
-    std::cout << _message.size << std::endl;
+
+    // std::cout << _message.content  << " size " << _message.size << std::endl;
+    // std::cout << _message.content << std::endl;
     send_message();
+    // if (_message.content == "exit") return true;
+    if (_message.size == 0) delete this;
 }
 
 void server::send_message() {
