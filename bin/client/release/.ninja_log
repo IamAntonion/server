@@ -1,0 +1,4 @@
+# ninja log v5
+0	39	1723544970207667540	CMakeFiles/client.dir/main.cpp.o	cae5b8db6100e5be
+0	60	1723544970207667540	CMakeFiles/client.dir/client.cpp.o	b1207ddcba035643
+60	137	1723544970331669228	client	8215d40525534945

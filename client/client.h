@@ -13,7 +13,7 @@
 namespace client {
 
 #define PORT_SERVER         8080
-#define IP_ADRESS_SERVER    "127.0.0.1"
+#define IP_ADDRESS_SERVER   "127.0.0.1"
 
 class client
 {
@@ -28,13 +28,14 @@ private:
 
     void start_client();
     void connect_to_server();
+    void talk_with_server();
 
     void close_socket();
 
     struct message {
-//        int size;
+        int size;
 //        std::string word;
-        bool test_bit;
+//        bool test_bit;
     };
 
     message _message;

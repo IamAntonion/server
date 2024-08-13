@@ -44,7 +44,7 @@ void server::start_server() {
 
     _server_addr.sin_family         = AF_INET;
     _server_addr.sin_port           = PORT_SERVER;
-    _server_addr.sin_addr.s_addr    = inet_addr(IP_ADRESS_SERVER);
+    _server_addr.sin_addr.s_addr    = inet_addr(IP_ADDRESS_SERVER);
 
     if (bind(_socket_server, (struct sockaddr*) &_server_addr, sizeof(_server_addr)) < 0) {
         throw std::runtime_error("IP address or port is not connect");
@@ -85,11 +85,13 @@ void server::listen_server() {
 }
 
 void server::recv_message() {
-    if (recv(_socket_server, &_message, sizeof(_message), 0)) {
+    if (recv(_socket_client, (struct message *)&_message, sizeof(_message), 0) < 0) {
+//    if (recv(_socket_server, (bool *)&_message.test_bit, sizeof(_message.test_bit), 0) < 0) {
         throw std::runtime_error("Message is not given");
     }
 //    std::cout << _message.word << std::endl;
-    std::cout << (_message.test_bit == true ? "Received" : "Not Received");
+    std::cout << _message.size << std::endl;
+//    std::cout << (_message.test_bit == true ? "Received" : "Not Received");
 }
 
 }

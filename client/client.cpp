@@ -7,7 +7,9 @@ client::client()
     try {
         start_client();
         connect_to_server();
-        send_message();
+
+        talk_with_server();
+//        send_message();
     } catch (const std::runtime_error& e) {
         std::cerr << e.what() << std::endl;
     }
@@ -30,7 +32,7 @@ void client::start_client() {
     _server_addr.sin_family = AF_INET;
     _server_addr.sin_port = PORT_SERVER ;
 
-    if (inet_pton(AF_INET, IP_ADRESS_SERVER,
+    if (inet_pton(AF_INET, IP_ADDRESS_SERVER,
                   &(_server_addr.sin_addr)) <= 0){
         throw std::runtime_error("IP addres is't correct");
     }
@@ -46,18 +48,29 @@ void client::connect_to_server() {
     std::cout << "Connect to server: Success\n";
 }
 
+void client::talk_with_server() {
+    while (1) {
+        send_message();
+    }
+}
+
 void client::send_message() {
     std::cout << "Write message: \n";
 //    std::cin >> _message.word;
+    std::cin >> _message.size;
 //    _message.word = "testing server";
 //    _message.size
-    _message.test_bit = true;
+//    _message.test_bit = true;
 
-    if (send(_socket, &_message, sizeof(_message), 0) < 0) {
+    if (send(_socket, (struct message *)&_message, sizeof(_message), 0) < 0) {
         throw std::runtime_error("Can't send message");
     }
 
-    std::cout << "Message is send";
+//    if (send(_socket, (bool *)&_message.test_bit, sizeof(_message.test_bit), 0) < 0) {
+//        throw std::runtime_error("Can't send message");
+//    }
+
+    std::cout << "Message is send\n";
 }
 
 void client::close_socket() {

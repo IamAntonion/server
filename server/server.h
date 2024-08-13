@@ -13,7 +13,7 @@
 namespace server {
 
 #define PORT_SERVER         8080
-#define IP_ADRESS_SERVER    "127.0.0.1"
+#define IP_ADDRESS_SERVER   "127.0.0.1"
 
 class server
 {
@@ -24,9 +24,6 @@ public:
     bool add_client();
 
 private:
-//    int _port = PORT_SERVER;
-//    const char* _ip = IP_ADRESS_SERVER;
-
     int _socket_server;
     int _socket_client;
 
@@ -40,9 +37,9 @@ private:
     void recv_message();
 
     struct message {
-//        int size;
+        int size;
 //        std::string word;
-        bool test_bit;
+//        bool test_bit;
     };
 
     message _message;

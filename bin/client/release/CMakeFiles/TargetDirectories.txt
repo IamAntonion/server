@@ -1,0 +1,7 @@
+/home/uniuser/testProgramm/server_TS/bin/client/release/CMakeFiles/client.dir
+/home/uniuser/testProgramm/server_TS/bin/client/release/CMakeFiles/edit_cache.dir
+/home/uniuser/testProgramm/server_TS/bin/client/release/CMakeFiles/rebuild_cache.dir
+/home/uniuser/testProgramm/server_TS/bin/client/release/CMakeFiles/list_install_components.dir
+/home/uniuser/testProgramm/server_TS/bin/client/release/CMakeFiles/install.dir
+/home/uniuser/testProgramm/server_TS/bin/client/release/CMakeFiles/install/local.dir
+/home/uniuser/testProgramm/server_TS/bin/client/release/CMakeFiles/install/strip.dir
