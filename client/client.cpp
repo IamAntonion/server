@@ -64,7 +64,7 @@ void client::send_message() {
 
     // _message.size = sizeof(_message.content);
 
-    if (send(_socket, (char *)&_message.content, sizeof(_message.content)+4, 0) < 0) {
+    if (send(_socket, (char *)&_message, sizeof(_message), 0) < 0) {
         throw std::runtime_error("Can't send message");
     }
 
@@ -77,7 +77,7 @@ void client::recv_message() {
     //     throw std::runtime_error("Response is not given");
     // }
     // std::cout << "Response: "<< time_to_send - time(NULL) << std::endl;
-    if (recv(_socket, (char *)&_message.content, sizeof(_message.content)+4, 0) < 0) {
+    if (recv(_socket, (char *)&_message, sizeof(_message), 0) < 0) {
         throw std::runtime_error("Response is not given");
     }
     std::cout << "message server - " << _message.content << "1" << std::endl;
