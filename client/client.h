@@ -35,9 +35,9 @@ private:
     void close_socket();
 
     struct message {
-        // std::string content;
+        std::string content;
         // int time;
-        int size;
+        // int size;
         //        std::string word;
         //        bool test_bit;
     };

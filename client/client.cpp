@@ -57,14 +57,14 @@ void client::talk_with_server() {
 
 void client::send_message() {
     std::cout << "Write message: \n";
-    // std::cin >> _message.content;
-    std::cin >> _message.size;
+    std::cin >> _message.content;
+    // std::cin >> _message.size;
 
     time_to_send = time(NULL);
 
     // _message.size = sizeof(_message.content);
 
-    if (send(_socket, (struct message *)&_message, sizeof(_message), 0) < 0) {
+    if (send(_socket, (char *)&_message.content, sizeof(_message.content)+4, 0) < 0) {
         throw std::runtime_error("Can't send message");
     }
 
@@ -72,11 +72,16 @@ void client::send_message() {
 }
 
 void client::recv_message() {
-    long time_S;
-    if (recv(_socket, (long *)&time_S, sizeof(time_S), 0) < 0) {
+    // long time_S;
+    // if (recv(_socket, (char *)&time_S, sizeof(time_S), 0) < 0) {
+    //     throw std::runtime_error("Response is not given");
+    // }
+    // std::cout << "Response: "<< time_to_send - time(NULL) << std::endl;
+    if (recv(_socket, (char *)&_message.content, sizeof(_message.content)+4, 0) < 0) {
         throw std::runtime_error("Response is not given");
     }
-    std::cout << "Response: "<< time_to_send - time(NULL) << std::endl;
+    std::cout << "message server - " << _message.content << "1" << std::endl;
+
 }
 
 void client::close_socket() {

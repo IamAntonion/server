@@ -39,8 +39,8 @@ private:
     void send_message();
 
     struct message {
-        // std::string content;
-        int size;
+        std::string content;
+        // int size;
         //        std::string word;
         //        bool test_bit;
     };
